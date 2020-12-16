@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "e75a8924-de6e-4871-b81d-a2bc3fbba440",
+		"name": "mongo-chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 Create User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"shahadat\",\n    \"email\":\"xyx@gmail.com\",\n    \"type\":\"support\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.203.181.197:4000/users",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.203.181.197:4000/users",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://159.203.181.197:4000/login/c9a7ea4747ef441288be6ad5bac58fef",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"login",
+						"c9a7ea4747ef441288be6ad5bac58fef"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 Initiate Chat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWE3ZWE0NzQ3ZWY0NDEyODhiZTZhZDViYWM1OGZlZiIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE2MDc5NjEyOTF9.0c63pxLWW467kJ8K_qnrGTZHVQUoFkcU9dhJQK1PZ8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userIds\":[\"8942218722fa434497ba5979caad3d88\",\"c9a7ea4747ef441288be6ad5bac58fef\"],\n    \"type\":\"consumer-to-consumer\",\n    \"chatInitiator\":\"8942218722fa434497ba5979caad3d88\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.203.181.197:4000/room/initiate",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"room",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 Send Message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWE3ZWE0NzQ3ZWY0NDEyODhiZTZhZDViYWM1OGZlZiIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE2MDc5NjEyOTF9.0c63pxLWW467kJ8K_qnrGTZHVQUoFkcU9dhJQK1PZ8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageText\":\"Valo kore bujjer try kor !! \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.203.181.197:4000/room/926d35ad9465427f9534c248a73c863d/message",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"room",
+						"926d35ad9465427f9534c248a73c863d",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 Get Conversation by roomid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWE3ZWE0NzQ3ZWY0NDEyODhiZTZhZDViYWM1OGZlZiIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE2MDc5NjEyOTF9.0c63pxLWW467kJ8K_qnrGTZHVQUoFkcU9dhJQK1PZ8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.203.181.197:4000/room/926d35ad9465427f9534c248a73c863d",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"room",
+						"926d35ad9465427f9534c248a73c863d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 Get Recent Conversation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWE3ZWE0NzQ3ZWY0NDEyODhiZTZhZDViYWM1OGZlZiIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE2MDc5NjEyOTF9.0c63pxLWW467kJ8K_qnrGTZHVQUoFkcU9dhJQK1PZ8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.203.181.197:4000/room",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 Mark as read",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWE3ZWE0NzQ3ZWY0NDEyODhiZTZhZDViYWM1OGZlZiIsInVzZXJUeXBlIjoiY29uc3VtZXIiLCJpYXQiOjE2MDc5NjEyOTF9.0c63pxLWW467kJ8K_qnrGTZHVQUoFkcU9dhJQK1PZ8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://159.203.181.197:4000/room/926d35ad9465427f9534c248a73c863d/mark-read",
+					"protocol": "http",
+					"host": [
+						"159",
+						"203",
+						"181",
+						"197"
+					],
+					"port": "4000",
+					"path": [
+						"room",
+						"926d35ad9465427f9534c248a73c863d",
+						"mark-read"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
